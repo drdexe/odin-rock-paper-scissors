@@ -9,4 +9,11 @@ function getComputerChoice() {
       return "scissors";
   }
 }
-console.log(getComputerChoice())
+
+function getHumanChoice() {
+  let choice = prompt("rock, paper, or scissors?");
+  return choice.trim().toLowerCase();
+}
+
+console.log(getComputerChoice());
+console.log(getHumanChoice());
