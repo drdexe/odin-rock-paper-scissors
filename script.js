@@ -1,5 +1,5 @@
 function getComputerChoice() {
-  let choice = Math.floor(Math.random() * 3);
+  const choice = Math.floor(Math.random() * 3);
   switch (choice) {
     case 0:
       return "rock";
@@ -11,7 +11,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let choice = prompt("rock, paper, or scissors?");
+  const choice = prompt("rock, paper, or scissors?");
   return choice.trim().toLowerCase();
 }
 
@@ -35,9 +35,10 @@ function playGame() {
     }
   }
 
+  let humanSelection, computerSelection;
   for (let i = 0; i < 5; i++) {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
   }
 
