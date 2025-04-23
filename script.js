@@ -14,7 +14,8 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  const result = document.querySelector(".result");
+  const resultsList = document.querySelector(".results");
+  const result = document.createElement("li");
 
   if (humanChoice === computerChoice) {
     result.textContent = "It's a tie!";
@@ -30,6 +31,7 @@ function playRound(humanChoice, computerChoice) {
     computerScore++;
   }
 
+  resultsList.appendChild(result);
   displayScores(humanScore, computerScore);
 }
 
@@ -42,9 +44,9 @@ function displayWinner() {
   document.querySelector(".button-container").remove();
   const winner = document.querySelector(".winner");
   if (humanScore === 5) {
-    winner.textContent = "You win!";
+    winner.textContent = "YOU WIN!";
   } else if (computerScore === 5) {
-    winner.textContent = "Computer wins!";
+    winner.textContent = "COMPUTER WINS!";
   }
 }
 
