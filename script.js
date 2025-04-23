@@ -34,6 +34,13 @@ function playRound(humanChoice, computerChoice) {
     result.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
     computerScore++;
   }
+
+  displayScores(humanScore, computerScore);
+}
+
+function displayScores(humanScore, computerScore) {
+  document.querySelector("#human-score").textContent = humanScore;
+  document.querySelector("#computer-score").textContent = computerScore;
 }
 
 const buttons = document.querySelectorAll("button");
