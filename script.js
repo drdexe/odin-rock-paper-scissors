@@ -13,13 +13,8 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  const choice = prompt("rock, paper, or scissors?");
-  return choice.trim().toLowerCase();
-}
-
 function playRound(humanChoice, computerChoice) {
-  const result = document.querySelector("#result");
+  const result = document.querySelector(".result");
 
   if (humanChoice === computerChoice) {
     result.textContent = "It's a tie!";
@@ -44,7 +39,8 @@ function displayScores() {
 }
 
 function displayWinner() {
-  const winner = document.querySelector("#winner");
+  document.querySelector(".button-container").remove();
+  const winner = document.querySelector(".winner");
   if (humanScore === 5) {
     winner.textContent = "You win!";
   } else if (computerScore === 5) {
