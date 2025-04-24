@@ -1,16 +1,10 @@
 let humanScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll("button");
 
 function getComputerChoice() {
-  const choice = Math.floor(Math.random() * 3);
-  switch (choice) {
-    case 0:
-      return "rock";
-    case 1:
-      return "paper";
-    case 2:
-      return "scissors";
-  }
+  const choices = ["rock", "paper", "scissors"];
+  return choices[Math.floor(Math.random() * 3)];
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -35,30 +29,52 @@ function playRound(humanChoice, computerChoice) {
   displayScores(humanScore, computerScore);
 }
 
+function displayChoices(humanChoice, computerChoice) {
+  const humanButton = document.querySelector(`button[value="${humanChoice}"]`);
+  const computerButton = document.querySelector(`button[value="${computerChoice}"]`);
+  humanButton.style.backgroundColor = "skyblue";
+  computerButton.style.border = "3px solid orange";
+}
+
+function resetButtonStyles() {
+  for (const button of buttons) {
+    button.style.backgroundColor = "";
+    button.style.border = "";
+  }
+}
+
 function displayScores() {
   document.querySelector("#human-score").textContent = humanScore;
   document.querySelector("#computer-score").textContent = computerScore;
 }
 
 function displayWinner() {
-  document.querySelector(".button-container").remove();
+  resetButtonStyles();
+  for (const button of buttons) {
+    button.disabled = true;
+  }
   const winner = document.querySelector(".winner");
   if (humanScore === 5) {
     winner.textContent = "YOU WIN!";
+    winner.style.backgroundColor = "lightgreen";
   } else if (computerScore === 5) {
     winner.textContent = "COMPUTER WINS!";
+    winner.style.backgroundColor = "orangered";
   }
 }
 
-const buttons = document.querySelectorAll("button");
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    playRound(button.value, getComputerChoice());
+    resetButtonStyles();
+
+    const humanSelection = button.value;
+    const computerSelection = getComputerChoice();
+
+    displayChoices(humanSelection, computerSelection);
+    playRound(humanSelection, computerSelection);
 
     if (humanScore === 5 || computerScore === 5) {
       displayWinner();
-      humanScore = 0;
-      computerScore = 0;
     }
   });
 });
