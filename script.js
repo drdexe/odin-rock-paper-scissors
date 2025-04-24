@@ -53,7 +53,7 @@ function displayWinner() {
 const buttons = document.querySelectorAll("button");
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    playRound(button.id, getComputerChoice());
+    playRound(button.value, getComputerChoice());
 
     if (humanScore === 5 || computerScore === 5) {
       displayWinner();
