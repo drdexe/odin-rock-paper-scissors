@@ -37,6 +37,7 @@ input {
 
 ul {
   list-style-type: none;
+  margin: 2em;
   padding: 0;
 }
 
@@ -53,8 +54,14 @@ ul {
 
 .human-score {
   background-color: skyblue;
+  font-size: 1.5em;
 }
 
 .computer-score {
   background-color: orange;
+  font-size: 1.5em;
 }
+
+#human-score, #computer-score {
+  font-weight: bolder;
+} 
