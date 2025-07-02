@@ -10,11 +10,15 @@ body {
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 5rem;
   text-align: center;
   width: clamp(10rem, 10vw, 10rem);
   height: clamp(10rem, 10vw, 10rem);
   margin: 2.5vw;
+  border-radius: 0;
 }
 
 button:hover {
